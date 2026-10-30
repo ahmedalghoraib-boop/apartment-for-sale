@@ -296,15 +296,15 @@
             const start = (currentPage - 1) * ITEMS_PER_PAGE;
             const end = start + ITEMS_PER_PAGE;
             const pageData = filteredData.slice(start, end);
-            tbody.innerHTML = pageData.map(item => ``
+            tbody.innerHTML = pageData.map(item => `
                 <tr>
-                    <td>{item.image_url ? `<img src="{item.image_url}" class="img-thumb" alt="صورة">` : '-'}</td>
-                    <td class="title" title="{item.raw_text.replace(/"/g, '"')}">{item.title}</td>
-                    <td class="price">{item.price}</td>
-                    <td class="location">{item.location}</td>
-                    <td><span class="area-badge">{item.source_area}</span></td>
-                    <td><a href="{item.url}" target="_blank" class="link-btn">فتح في فيسبوك</a></td>
-                </tr>`
+                    <td>${item.image_url ? `<img src="${item.image_url}" class="img-thumb" alt="صورة">` : '-'}</td>
+                    <td class="title" title="${item.raw_text.replace(/\"/g, '"')}">${item.title}</td>
+                    <td class="price">${item.price}</td>
+                    <td class="location">${item.location}</td>
+                    <td><span class="area-badge">${item.source_area}</span></td>
+                    <td><a href="${item.url}" target="_blank" class="link-btn">فتح في فيسبوك</a></td>
+                </tr>`)
             ).join(''));
             renderPagination();
         }
